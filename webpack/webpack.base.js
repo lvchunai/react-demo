@@ -2,8 +2,10 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack');
-console.log(process.cwd());
+console.log('1000000000000000000000000', process.cwd());
+console.log('2000000000000000000000000', path.resolve(__dirname, '../build/static/app'));
 module.exports = {
   entry: {
     home: './src/static/js/main.js',
@@ -11,18 +13,20 @@ module.exports = {
   output: {
     filename: 'js/[name].bundle.js',
     path: path.resolve(__dirname, '../build/static/app'),
-    publicPath: 'http://localhost:5000/static',
+    // publicPath: path.resolve(__dirname, '../build/static/app'),
     chunkFilename: 'js/[name].chunk.js'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.css', '.json', '*'],
   },
-  devServer: {
-    port: 5000,
-    hot: true,
-    index: '../../index.html',
-    contentBase: '/static/js'
-  },
+  // devServer: {
+  //   port: 5000,
+  //   hot: true,
+  //   open: true,
+  //   publicPath: '/',
+  //   // index: '../../index.html',
+  //   contentBase: '../build',
+  // },
   module: {
     rules: [{
       test: /\.js|jsx$/,
@@ -92,13 +96,20 @@ module.exports = {
       filename:'styles/[name].[hash:8].css',
       allChunks: true
     }),
-    new CleanWebpackPlugin(['build'], {
-      root: path.resolve(__dirname, '../'),
+    new CleanWebpackPlugin(['static', 'index.html'], {
+      root: path.resolve(__dirname, '../build'),
       verbose: true,
       watch: false
     }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    // new CopyWebpackPlugin([{
+    //   from: path.resolve(__dirname, '../build/static'),
+    //   to: path.resolve(__dirname, '../nginx-1.12.2/html')
+    // }, {
+    //   from: path.resolve(__dirname, '../build/index.html'),
+    //   to: path.resolve(__dirname, '../nginx-1.12.2/html')
+    // }])
+    // new webpack.NamedModulesPlugin(),
+    // new webpack.HotModuleReplacementPlugin()
   ],
   optimization: {
     splitChunks: {

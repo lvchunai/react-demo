@@ -12,7 +12,7 @@ module.exports = {
   },
   output: {
     filename: 'js/[name].bundle.js',
-    path: path.resolve(__dirname, '../build/static/app'),
+    path: path.resolve(__dirname, '../nginx-1.12.2/html/build/static/app'),
     // publicPath: path.resolve(__dirname, '../build/static/app'),
     chunkFilename: 'js/[name].chunk.js'
   },
@@ -96,20 +96,11 @@ module.exports = {
       filename:'styles/[name].[hash:8].css',
       allChunks: true
     }),
-    new CleanWebpackPlugin(['static', 'index.html'], {
-      root: path.resolve(__dirname, '../build'),
+    new CleanWebpackPlugin(['build'], {
+      root: path.resolve(__dirname, '../nginx-1.12.2'),
       verbose: true,
       watch: false
-    }),
-    // new CopyWebpackPlugin([{
-    //   from: path.resolve(__dirname, '../build/static'),
-    //   to: path.resolve(__dirname, '../nginx-1.12.2/html')
-    // }, {
-    //   from: path.resolve(__dirname, '../build/index.html'),
-    //   to: path.resolve(__dirname, '../nginx-1.12.2/html')
-    // }])
-    // new webpack.NamedModulesPlugin(),
-    // new webpack.HotModuleReplacementPlugin()
+    })
   ],
   optimization: {
     splitChunks: {

@@ -5,6 +5,6 @@
 ./build
 
 ./nginx-1.12.2/logs
-./nginx-1.12.2/html/build
+/nginx-1.12.2/html/build
 
 

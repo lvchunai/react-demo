@@ -1,10 +1,21 @@
 import React from 'react';
-import { Router, RouteIndex, Switch } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
+
+import FilterableProductTable from '../views/productFilter/filterableProductTable';
+import Home from '../views/common/home';
 
 class Routers extends React.Component {
 
   render() {
-    return (<Router />);
+    return <section className="main-content">
+      <HashRouter>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/filter-product' component={FilterableProductTable} />
+          <Route exact path='/test' component={FilterableProductTable} />
+        </Switch>
+      </HashRouter>
+    </section>; 
   }
 }
 

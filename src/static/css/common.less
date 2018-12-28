@@ -20,19 +20,19 @@
 .padding-bottom (@size: 1rem) { padding-bottom: @size; }
 
 /* heights */
-@header-height: 10rem;
-@footer-height: 5rem;
+@header-height: 6rem;
+@footer-height: 3rem;
 .aside-height (@height: 100%) { height: @height; }
 /* width */
 .aside-width (@width: 20%) { width: @width; };
 
-html, body, header, footer, main, aside, section, article, h1, h2, h3, h4, h5, h6, p, div, span, img {
+html, body, header, footer, main, aside, section, article, h1, h2, h3, h4, h5, h6, p, div, span, img, ul, li {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,{
+html {
   width: 100%;
   height: 100%;
   font-size: 14px;
@@ -44,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
-a {
+a, ul, li {
   text-decoration: none;
   color: inherit;
 }

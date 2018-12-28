@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "node ./server.js",
-    "start": "webpack-dev-server  --hot --progress --colors --config ./webpack/webpack.dev.js --open",
-    "dev": "webpack --progress --config ./webpack/webpack.dev.js -w",
+    "start": "webpack --progress --config ./webpack/webpack.dev.js -w",
+    "dev": "webpack --progress --config ./webpack/webpack.dev.js",
     "build": "webpack  --progress --config ./webpack/webpack.prod.js"
   },
   "author": "kathy",
@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "react-router-dom": "^4.3.1"
   }
 }

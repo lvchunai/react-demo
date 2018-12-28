@@ -4,8 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack');
-console.log('1000000000000000000000000', process.cwd());
-console.log('2000000000000000000000000', path.resolve(__dirname, '../build/static/app'));
 module.exports = {
   entry: {
     home: './src/static/js/main.js',
@@ -97,7 +95,7 @@ module.exports = {
       allChunks: true
     }),
     new CleanWebpackPlugin(['build'], {
-      root: path.resolve(__dirname, '../nginx-1.12.2'),
+      root: path.resolve(__dirname, '../nginx-1.12.2/html'),
       verbose: true,
       watch: false
     })

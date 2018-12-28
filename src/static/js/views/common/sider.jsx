@@ -8,7 +8,6 @@ class Sider extends React.Component {
     };
   }
   render() {
-    console.log(name, this.props);
     return <aside className="app-aside">{this.state.name}</aside>;
   }
 }

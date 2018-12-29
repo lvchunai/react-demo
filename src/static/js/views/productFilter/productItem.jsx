@@ -8,7 +8,7 @@ class ProductItem extends React.Component {
 
   render() {
     return (
-      <tr>
+      <tr className={this.props.item.stocked ? '' : 'stocked'}>
         <td>{this.props.item.name}</td>
         <td>{this.props.item.price}</td>
       </tr>

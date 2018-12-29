@@ -15,20 +15,14 @@ class ProductCategory extends React.Component {
     let products = [];
     const stockProducts = [];
     cateProducts.map((value) => {
-      if (value.name.indexOf(filterText) > 0) {
+      if (value.name.indexOf(filterText) > 0 || (inStockOnly && value.stocked)) {
         products.push(value);
       }
-      if (inStockOnly) {
-        stockProducts.push(value);
-      }
     });
-    products = filterText ? products : cateProducts;
-    const productsList = inStockOnly ?
-      stockProducts.map(value => (<ProductItem key={value.name} item={value} />)) :
-      products.map(value => (<ProductItem key={value.name} item={value} />))
+    products = filterText || inStockOnly ? products : cateProducts;
     return [
-      <tr><td>{title}</td></tr>,
-      productsList
+      <tr className="cate-title"><td>{title}</td></tr>,
+      products.map(value => (<ProductItem key={value.name} item={value} />))
     ];
   }
 }
